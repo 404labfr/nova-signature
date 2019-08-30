@@ -12,7 +12,8 @@ Behind the scenes [WangShayne/vue-signature](https://github.com/WangShayne/vue-s
 
 ## Usage
 
-In your nova resource make the field `Lab404\NovaSignature\NovaSignature`:
+In your nova resource make the field `Lab404\NovaSignature\NovaSignature`.
+This field fits perfectly with a `TEXT` column and can be used both for resources and actions.
 
 ```php
 public function fields()

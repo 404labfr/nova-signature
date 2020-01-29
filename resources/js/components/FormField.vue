@@ -17,6 +17,7 @@
                 <button type="button"
                         class="btn btn-link dim cursor-pointer text-80"
                         @click.stop="save"
+                        v-if="!saveOnChanges"
                 >{{ __('Attach') }}</button>
             </div>
 
@@ -44,6 +45,7 @@ export default {
             color: 'black',
             bgColor: 'white',
             disabled: false,
+            saveOnChanges: false,
         }
     },
 
@@ -52,6 +54,7 @@ export default {
         this.height = this.field.height || this.height;
         this.color = this.field.color || this.color;
         this.bgColor = this.field.bgColor || this.bgColor;
+        this.saveOnChanges = this.field.saveOnChanges || this.saveOnChanges;
     },
 
     mounted() {
@@ -61,6 +64,15 @@ export default {
                 this.$refs.signature.fromDataURL(this.value);
             }
         });
+
+		this.$watch(
+			() => {
+				return this.$refs.signature.sig._data;
+			},
+            () => {
+				this.save();
+			}
+		);
     },
 
     methods: {

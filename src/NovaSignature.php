@@ -37,4 +37,9 @@ class NovaSignature extends Field
 
         return $this;
     }
+	
+	public function saveOnChanges(): self
+	{
+		return $this->withMeta(['saveOnChanges' => true]);
+    }
 }

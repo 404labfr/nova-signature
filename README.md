@@ -36,6 +36,7 @@ NovaSignature::make('Signature')
     ->bgColor('white') // (string) Same as 'color'
     ->width('100%') // (string) Any css compatible value: "100%", "200px", ...
     ->height('250px') // (string) Same as 'width'
+    ->saveOnChanges() // () Save the signature at every change and it will hide the Attach button
 ```
 
 ### Validation
